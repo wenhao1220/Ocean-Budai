@@ -1,0 +1,504 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@200;300;400;500;600;700;900&display=swap');
+
+/*----------------
+	General
+-----------------*/
+* {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+
+/**/
+
+/* 上標 */
+
+nav {
+	display: flex;
+	flex-direction: column;
+	color: #ffffff;
+	padding: 10px;
+	text-align: center;
+	justify-content: center;
+	align-items: center;
+	margin-top: 1.5%;
+	margin-bottom: 1%;
+  }
+  
+  nav ul {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	display: flex;
+	/* 將 ul 轉換為 Flex Container */
+  }
+  
+  nav li {
+	margin-right: 30px;
+	font-family: 'Noto Serif JP', sans-serif;
+	font-weight: 600;
+	/* font-style: normal; */
+  }
+  
+  nav a {
+	/* font-family: 'Noto Serif JP', serif; */
+	text-decoration: none;
+	color: #ffffff;
+	/* font-weight: bold; */
+	font-size: 24px;
+	border-bottom: none;
+	/* 移除底線 */
+  }
+  
+  nav a:hover {
+	border-bottom: 2px solid #ffffff;
+	/* 游標放上時顯示底線 */
+  }
+  
+  nav li.selected a {
+	border-bottom: 2px solid #ffffff;
+  }
+
+
+/* Remove outline > Apply other styles for accessibility */
+/*
+:focus {
+	outline: none;
+}
+html, body {
+	height: 100%;
+	width: 100%;
+}
+*/
+
+body {
+	background-color: rgb(107, 172, 188);
+	/*font-family: 'Alegreya Sans', sans-serif;*/
+	/* font-weight: 300; */
+	position: relative;
+	letter-spacing: 0.05rem;
+	line-height: 1.5;
+	text-align: center;
+	display: flex;
+    flex-direction: column;
+    font-size: 1rem;
+    justify-content: center;
+    align-items: center;
+
+}
+
+
+/*
+a {
+	color: #6D8CA0;
+	font-weight: 700;
+	text-decoration: none;
+}
+a:hover {
+	text-decoration: underline;
+}
+footer {
+	color: rgba(255,255,255,0.6);
+	font-size: 0.8rem;
+	letter-spacing: 0.07em;
+	line-height: 2;
+	padding: 30px 0;
+	width: 100%;
+}
+#lastUpdated {
+	color: #fff;
+	padding: 5% 0;
+}
+#lastUpdated:before {
+	content: '-- ';
+}
+#lastUpdated:after {
+	content: ' --';
+}
+*/
+
+/*----------------
+	Containers
+-----------------*/
+.wrapper {
+	color: #fff;
+	overflow: auto;
+	width: 100%;
+}
+
+/*----------------
+	Buttons
+-----------------*/
+button {
+	border: none;
+	cursor: pointer;
+}
+.wrapper nav {
+	font-size: 2rem;
+	margin: 0 auto;
+	padding: 2% 0 10%;
+}
+#locateBtn, #unitBtn {
+	background: none;
+	border: 2px solid rgba(255,255,255,0.25);
+	border-radius: 50%;
+	color: #fff;
+	height: 45px;
+	transition: background 1s ease-in-out, border 0.2s ease-in-out;
+	width: 45px;
+}
+#locateBtn.on, #unitBtn.on {
+	background: rgba(255,255,255,0.25);
+}
+#locateBtn:focus, #locateBtn:hover, #unitBtn:focus, #unitBtn:hover {
+	border: 2px solid rgba(255,255,255,0.75);
+}
+#locateBtn {
+	margin-right: 10px;
+}
+#unitBtn {
+	font-size: 1.1rem;
+	font-weight: 350px;
+	padding-right: 3px;
+	padding-top: 2px;
+	text-transform: uppercase;
+}
+#unitBtn:before {
+	content: '\00b0'; /* Degree symbol */
+	padding: 1px;
+}
+/* locateBtn Pulse Animation */
+#locateBtn.pulse {
+	animation: pulse 2s infinite;
+}
+@keyframes pulse {
+	20% { background: rgba(255,255,255,0.25); }
+}
+
+/*----------------
+	Current Weather
+-----------------*/
+
+/*考慮*/
+#current {
+	padding: 5% 5% 20%;
+	position: relative;
+}
+.location {
+	font-size: 2em;
+	font-weight: 700;
+	margin: 0;
+}
+.date {
+	font-size: 1em;
+	font-weight: 300;
+	/*text-transform: uppercase;*/
+}
+#current .weatherIcon {
+	height: 100px;
+	margin: 10% auto 7%;
+	width: 100px;
+}
+.temp {
+	font-size: 3em;
+	line-height: 1.3;
+}
+.temp:after {
+	content: '\00b0';
+	margin-right: -0.3em;
+}
+
+#current .conditions {
+	font-size: 5em;
+	/*text-transform: uppercase;*/
+} 
+
+.weather_how{
+	font-size: 1.3em;
+}
+
+.rain{
+	font-size: 1.5em;
+}
+
+
+/*天氣符號*/
+.yellow {fill:#FFEB3B}
+
+.element {
+	margin-top: 50px;
+    margin-bottom: 20px;
+}
+
+svg {
+	height: 100px; /* 設置新的高度值，可以是任何你想要的數值 */
+	width: 100px;  /* 設置新的寬度值，可以是任何你想要的數值 */
+
+}
+
+
+/*漁船*/
+/*
+body {
+	font-family: 'arial';
+	margin: 0;
+	overflow-x: hidden;
+	padding: 0;
+
+}
+*/
+
+/* 間格 */
+.temperature{
+	height: 14vh;
+}
+
+.temp {
+	font-size: 3em;
+	line-height: 1.3;
+	height: 13vh;
+}
+
+.weather-condition{
+	height: 8vh;
+}
+
+.weather_how{
+	font-size: 1.3em;
+	letter-spacing: 0.05rem;
+}
+
+.animation-wrapper {
+	background: #ace5ee;
+	bottom: 0;
+	left: 0;
+	position: absolute;
+	right: 0;
+	top: 0;
+	margin-top: 95%;
+	/*margin-top: 10em;*/
+}
+
+.water {
+	bottom: 0;
+	left: 0;
+	position: absolute;
+	width: 100%;
+}
+
+.water ul.waves {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+.water ul.waves li {
+	background-repeat: repeat-x;
+}
+
+.water ul.waves li.wave-one {
+	animation: wave 8.7s linear infinite;
+	-webkit-animation-fill-mode: forwards;
+	-o-animation-fill-mode: forwards;
+	animation-fill-mode: forwards;
+	bottom: 0px;
+	height: 50px;
+	left: 0;
+	position: absolute;
+	right: 0;
+	z-index: 10;
+}
+
+.water ul.waves li.wave-two {
+	-webkit-animation-fill-mode: forwards;
+	-o-animation-fill-mode: forwards;
+	animation-fill-mode: forwards;
+	animation: wave 10s linear infinite;
+	bottom: 0px;
+	height: 84px;
+	left: 0;
+	position: absolute;
+	right: 0;
+	z-index: 9;
+}
+
+.water ul.waves li.wave-three {
+	-webkit-animation-fill-mode: forwards;
+	-o-animation-fill-mode: forwards;
+	animation-fill-mode: forwards;
+	animation: wave 25s linear infinite;
+	bottom: 0;
+	height: 190px;
+	left: 0;
+	position: absolute;
+	right: 0;
+	z-index: 8;
+}
+
+.water ul.waves li.wave-four {
+	-webkit-animation-fill-mode: forwards;
+	-o-animation-fill-mode: forwards;
+	animation-fill-mode: forwards;
+	animation: wave 25s linear infinite;
+	bottom: 0;
+	height: 205px;
+	left: 0;
+	position: absolute;
+	right: 0;
+}
+
+.boat {
+	animation: boat 3s linear infinite;
+	background-repeat: no-repeat;
+	bottom: 175px;
+	height: 145px;
+	left: 60%;
+	position: absolute;
+	width: 250px;
+}
+
+.cloud {
+	animation: cloud 30s linear infinite;
+	background-repeat: no-repeat;
+	height: 165px;
+	left: 0;
+	position: absolute;
+	width: 297px
+}
+
+.cloud2 {
+	animation: cloud 25s linear infinite;
+	background-repeat: no-repeat;
+	bottom: 480px;	/*距離底下之位置*/
+	height: 165px;
+	left: 140px;
+	position: absolute;
+	width: 297px;
+}
+
+.dolphin {
+	animation: fish 15s linear infinite;
+	background-repeat: no-repeat;
+	bottom: 45px;
+	height: 80px;
+	left: 20%;
+	position: absolute;
+	width: 124px;
+	z-index: 9;
+}
+
+/*Animation Keyframe Section*/
+
+@keyframes wave {
+	0% {
+		background-position: 0 0;
+	}
+
+	100% {
+		background-position: 1920px 0;
+	}
+}
+
+@keyframes boat {
+	0% {
+		transform: rotate(0);
+	}
+
+	50% {
+		transform: rotate(-3deg);
+	}
+
+	100% {
+		transform: rotate(0);
+	}
+}
+
+@keyframes cloud {
+	0% {
+		left: -30%;
+	}
+
+	100% {
+		left: 100%;
+	}
+}
+
+/*----------------
+	Media Queries
+-----------------*/
+
+@media (min-width: 375px) {
+	.wrapper nav {
+		left: 5%;
+		position: absolute;
+		top: 10%;
+	}
+	#locateBtn, #unitBtn {
+		display: block;
+		margin-bottom: 10px;
+	}
+	#current { 
+		padding-bottom: 15%;
+		padding-top: 15%;
+	}
+}
+
+
+@media (min-width: 550px) {
+	nav { top: 8%; }
+	/* Current Weather */
+	#current { 
+		font-size: 1.3rem;
+		padding-bottom: 10%;
+		padding-top: 10%;
+	}
+	.date, #current .conditions { font-size: 0.9em;}
+	#current .weatherIcon {
+		font-size: 0.95em;
+		height: 120px;
+		margin: 7% auto 3%;
+		width: 120px;
+	}
+	/* Future Forecast */
+	#future {
+		font-size: 1.1rem;
+		padding: 0;
+		margin-bottom: 3%;
+	}
+	#future > .container {
+		border-bottom: none;
+		float: left;
+		padding: 20px;
+		width: 33.33%; 
+	}
+	#future > .container:first-child { border-top: none; }
+	#future > .container:not(:last-child) { border-right: 1px solid rgba(255,255,255,0.25); }
+	#future .day, #future p { text-align: center; }
+	#future .weatherIcon {
+		font-size: 0.56em;
+		float: none;
+		height: 60px;
+		margin: 10% auto 5%;
+		width: 60px;
+	}
+	footer { font-size: 0.9rem; }
+}
+
+@media (min-width: 880px) {
+	nav { top: 5%; }
+	#current {
+		font-size: 1.5rem;
+		padding-bottom: 5%;
+		padding-top: 5%;
+	}
+	#current .weatherIcon {
+		font-size: 0.82em;
+		margin: 5% auto 2%;
+	}
+	#lastUpdated {
+		padding: 3%;
+	}
+}
+
+
+

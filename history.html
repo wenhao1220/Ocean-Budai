@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="history.css">
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"
+    integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
+  <script type="text/javascript" src="history.js" defer></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC&display=swap" rel="stylesheet">
+  <title>歷史沿革</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@200;300;400;500;600;700;900&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Racing+Sans+One&display=swap');
+
+
+    body {
+      background-image: none;
+      /* background-color: #47748A; */
+      /* background-color: #417892; */
+      background-color: #44738B;
+    }
+
+    nav {
+      position: relative;
+      z-index: 2;
+      /* 设置导航栏的 z-index 为 2，使其在图片上方 */
+    }
+
+    h1 {
+      color: white;
+      font-size: 75px;
+      /* font-family: 'Noto Sans TC', sans-serif; */
+      font-family: 'Noto Serif JP', sans-serif;
+      font-weight: 700;
+      position: relative;
+      z-index: 2;
+      /* 设置导航栏的 z-index 为 2，使其在图片上方 */
+      right: 100px;
+      bottom: 730px;
+      margin: 0;
+    }
+
+    .bigtext {
+      text-align: left;
+      height: 1px;
+    }
+
+    h2 {
+      font-family: PMingLiU;
+      color: white;
+      font-size: 60px;
+      margin-bottom: 15px;
+    }
+
+    p {
+      font-family: PMingLiU;
+      color: white;
+      font-size: 25px;
+    }
+
+    .big-pic {
+      overflow: hidden;
+      margin-bottom: 910px;
+      /* position: relative; */
+    }
+
+    .big-pic img {
+      width: 100%;
+      /* 使图片宽度充满父容器 */
+      height: auto;
+      /* 根据宽度自动调整高度以保持纵横比 */
+      position: absolute;
+      /* 将图片定位到页面上，相对于最近的已定位的祖先元素 */
+      top: 0;
+      left: 0;
+      z-index: 1;
+      /* 设置图片的 z-index 为 1，使其在导航栏下面 */
+      position: absolute;
+    }
+
+    #container4 {
+      display: block;
+      z-index: 5;
+      height: 20vh;
+      background-color: #497B8C;
+      position: relative;
+      top: -100px;
+      /* Adjust the value as needed */
+    }
+
+    #container5 {
+      display: block;
+      z-index: 5;
+      height: 30vh;
+      background-color: #497B8C;
+      position: relative;
+      top: -100px;
+      /* Adjust the value as needed */
+    }
+
+
+    /* 使用 Flexbox 來設定橫列排列 */
+    .container {
+      display: flex;
+      /* background-color: #497B8C; */
+    }
+
+
+    .container8 {
+      /* display: flex; */
+      /* background-color: #497B8C; */
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100%;
+      margin-top: 10%;
+      margin-bottom: 10%;
+    }
+
+
+    .container9 {
+      display: flex;
+      position: relative;
+      top: -40px;
+      z-index: 8;
+      /* background-color: #497B8C; */
+    }
+
+    /* 設定左邊6成區域 */
+    .image-container {
+      flex: 6;
+      margin-right: 80px;
+      margin-left: 80px;
+      margin-bottom: 150px;
+    }
+
+    /* 設定右邊4成區域 */
+    .text-container {
+      flex: 4;
+      margin-bottom: 150px;
+      margin-right: 50px;
+      margin-left: 150px;
+      position: relative;
+    }
+
+    .text-container1 {
+      flex: 4;
+      margin-bottom: 150px;
+      margin-right: 70px;
+      margin-left: 110px;
+      position: relative;
+    }
+
+    .text-container h2 {
+      z-index: 1;
+    }
+
+    .text-container p {
+      z-index: 1;
+    }
+
+    .text-container .design1 {
+      z-index: 0;
+    }
+
+    .text-container .design2 {
+      z-index: 0;
+    }
+
+    .text-container .design3 {
+      z-index: 0;
+    }
+
+    .text-container .design4 {
+      z-index: 0;
+    }
+
+
+
+    /* 讓圖片填滿其區域 */
+    .image-container img {
+      width: 100%;
+      height: 450px;
+    }
+
+    .footer {
+      background-color: #233f4a;
+      color: white;
+      padding: 20px;
+      text-align: center;
+      width: 100%;
+      position: relative;
+    }
+
+    .footer a {
+      color: #58c8da;
+      text-decoration: none;
+    }
+
+    .footer a:hover {
+      text-decoration: underline;
+    }
+
+    .logo {
+      position: absolute;
+      left: 20px;
+      /* 调整 Logo 距离左侧的距离 */
+      bottom: 20px;
+      /* 调整 Logo 距离底部的距离 */
+      z-index: 1;
+      /* 使 Logo 处于底部背景之上 */
+      height: 100px;
+      /* 设置 Logo 的高度 */
+    }
+
+    /*  */
+    .ddd {
+      position: relative;
+      margin-top: 5%;
+      margin-bottom: 5%;
+    }
+
+    /*  */
+    .design1 {
+      position: absolute;
+      top: 7%;
+      left: -6%;
+      transform: translate(-50%, -50%);
+      color: rgba(255, 255, 255, 0.50);
+      text-align: center;
+      font-family: Racing Sans One;
+      font-size: 150px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: normal;
+
+    }
+
+    .design2 {
+      position: absolute;
+      top: 4%;
+      left: -2%;
+      transform: translate(-50%, -50%);
+      color: rgba(255, 255, 255, 0.50);
+      text-align: center;
+      font-family: Racing Sans One;
+      font-size: 150px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: normal;
+    }
+
+    .design3 {
+      position: absolute;
+      top: 5%;
+      left: -2%;
+      transform: translate(-50%, -50%);
+      color: rgba(255, 255, 255, 0.50);
+      text-align: center;
+      font-family: Racing Sans One;
+      font-size: 150px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: normal;
+    }
+
+    .design4 {
+      position: absolute;
+      top: 5%;
+      left: -2%;
+      transform: translate(-50%, -50%);
+      color: rgba(255, 255, 255, 0.50);
+      text-align: center;
+      font-family: Racing Sans One;
+      font-size: 150px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: normal;
+    }
+
+    .y1 {
+      position: relative;
+      top: -16px;
+      margin-left: 16%;
+      color: #BFC170;
+      /* text-align: center; */
+      font-family: Otomanopee One;
+      font-size: 25px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: normal;
+    }
+
+    .yy1 {
+      margin-top: 7%;
+      margin-left: 0.1%;
+      width: 65px;
+      height: 4px;
+      background: rgba(164, 184, 106, 0.80);
+    }
+
+    .y2 {
+      position: relative;
+      top: -15px;
+      margin-left: 22%;
+      color: #BFC170;
+      /* text-align: center; */
+      font-family: Otomanopee One;
+      font-size: 25px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: normal;
+    }
+
+    .yy2 {
+      margin-top: 5%;
+      margin-left: 6%;
+      width: 65px;
+      height: 4px;
+      background: rgba(164, 184, 106, 0.80);
+    }
+
+    .y3 {
+      position: relative;
+      top: -15px;
+      margin-left: 22%;
+      color: #BFC170;
+      /* text-align: center; */
+      font-family: Otomanopee One;
+      font-size: 25px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: normal;
+    }
+
+    .yy3 {
+      margin-top: 5%;
+      margin-left: 5%;
+      width: 65px;
+      height: 4px;
+      background: rgba(164, 184, 106, 0.80);
+    }
+
+    .y4 {
+      position: relative;
+      top: -15px;
+      margin-left: 23%;
+      color: #BFC170;
+      /* text-align: center; */
+      font-family: Otomanopee One;
+      font-size: 25px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: normal;
+    }
+
+    .yy4 {
+      margin-top: 7%;
+      margin-left: 6%;
+      width: 65px;
+      height: 4px;
+      background: rgba(164, 184, 106, 0.80);
+    }
+  </style>
+</head>
+
+<body>
+  <nav>
+    <ul>
+      <li class="nav-item"><a href="history.html">歷史沿革</a></li>
+      <li class="nav-item"><a href="home.html">相遇布袋</a></li>
+      <li class="nav-item"><a href="weather.html">布袋天氣</a></li>
+      <li class="nav-item"><a href="vedio.html">娛樂專區</a></li>
+      <li class="nav-item"><a href="information.html">相關資訊</a></li>
+    </ul>
+  </nav>
+
+  <div class="big-pic">
+    <img src="history/image_2.png" alt="圖片描述">
+  </div>
+
+  <div class="bigtext">
+    <h1>當布袋遇上海，</h1>
+    <h1>勇氣與毅力綻放輝煌。</h1>
+  </div>
+
+  <!--  -->
+  <!-- <div class="container" id="container4"></div> -->
+
+  <!--  -->
+  <!-- <div class="container" id="container5"></div> -->
+
+  <div class="container9">
+    <div class="image-container">
+      <!-- 放置你的圖片 -->
+      <img src="history/history2.jpg" alt="圖片描述">
+    </div>
+    <div class="text-container1">
+      <div class="yy1"></div>
+      <div class="y1">GET START</div>
+      <!-- 放置你的文字內容 -->
+      <h2>荷蘭與明鄭時期</h2>
+      <p>
+        &ensp;&ensp;&ensp;&ensp;古稱「魍港」（今好美里一帶），其所開發，始於明末開墾，海盜顏思齊、鄭芝龍拓臺十寨之第六寨便設於魍港大坵田。天啟四年(西元1624年)荷蘭東印度公司來臺後，魍港納入統治。<br>&ensp;&ensp;&ensp;鄭成功遠涉海峽，驅離東印度公司勢力之後，鄭氏王朝亦遣部將屯墾此地，並募集福建漳州、泉州三邑、泉州安溪等地先民遷居開墾，當時本地較為荒涼，經先民集居著手經營，而形成村落鬧市。
+      </p>
+      <div class="design1">01</div>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="text-container">
+      <!-- 放置你的文字內容 -->
+      <div class="yy2"></div>
+      <div class="y2">NEXT</div>
+      <h2>清領時期</h2>
+      <p>&ensp;&ensp;&ensp;布袋鎮是嘉義縣開發最早的地區，舊稱布袋嘴，又稱冬港。
+        冬港為布袋清領初期的稱呼，清康熙年代，位於八掌溪口，大坵田沙嘴東南岸濱潟湖的一個內港。<br>&ensp;&ensp;&ensp;諸羅縣志載有：「冬港商船到此載五穀，南出青峰闕，入於海。」所指「冬港」就是現在的布袋港。清乾隆年間布袋發展成一內港街庄，九龍里香火鼎盛的嘉應廟以及永安里的永安宮皆建於此期間。
+      </p>
+      <div class="design2">02</div>
+    </div>
+    <div class="image-container">
+      <!-- 放置你的圖片 -->
+      <img src="history/history3.jpg" alt="圖片描述">
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="image-container">
+      <!-- 放置你的圖片 -->
+      <img src="history/history4.jpg" alt="圖片描述">
+    </div>
+    <div class="text-container1">
+      <!-- 放置你的文字內容 -->
+      <div class="yy3"></div>
+      <div class="y3">AFTER THAT</div>
+      <h2>日治時期</h2>
+      <p>&ensp;&ensp;&ensp;清朝與日本簽訂馬關條約後，臺灣割讓給日本。日本將布袋改稱為布袋街，屬臺南縣管轄。1920年8月10日改稱為臺南州東石郡布袋庄。</p>
+      <div class="design3">03</div>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="text-container">
+      <!-- 放置你的文字內容 -->
+      <div class="yy4"></div>
+      <div class="y4">FINALLY</div>
+      <h2>民國時期</h2>
+      <p>
+        &ensp;&ensp;&ensp;民國34年，第二次世界大戰結束，日本無條件投降，中華民國接管臺灣。民國35年改為臺南縣東石區布袋鄉公所，後來本鄉因布袋港與大陸通商，航運發達，人口激增，於民國37年改制為鎮，民國39年改隸嘉義縣布袋鎮。<br>&ensp;&ensp;&ensp;民國35年（西元1946年）6月21日，布袋開始出現霍亂病例，7月4日判定為該地船隻傳入，警方在當地唯一的道路路口以草繩作為封鎖線管制出入，7月18日發生警民衝突造成鄉民一死一傷，員警重傷，是為布袋事件，疫情到了7月25日才平息。此外，布袋鎮曾是烏腳病主要流行地區之一。
+      </p>
+      <div class="design4">04</div>
+    </div>
+    <div class="image-container">
+      <!-- 放置你的圖片 -->
+      <img src="history/history5.jpg" alt="圖片描述">
+    </div>
+  </div>
+
+  <!-- <div class="container8"></div> -->
+
+
+
+
+  <div class="footer">
+    <p>Contact: team7@gmail.com</p>
+    <p>Phone: 7777777</p>
+    <p>&copy; 網設第七組 | <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a></p>
+    <img class="logo" src="history/logo.png" alt="logo">
+  </div>
+
+</body>
+
+</html>

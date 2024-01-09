@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Weather Page</title>
+    <meta charset="utf-8">
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
+    <link rel="stylesheet" href="weather.css">
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"
+        integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
+    <script type="text/javascript" src="weather.js" defer></script>
+</head>
+
+<body>
+
+    <nav>
+        <ul>
+            <li class="nav-item"><a href="history.html">歷史沿革</a></li>
+            <li class="nav-item"><a href="home.html">相遇布袋</a></li>
+            <li class="nav-item"><a href="weather.html">布袋天氣</a></li>
+            <li class="nav-item"><a href="vedio.html">娛樂專區</a></li>
+            <li class="nav-item"><a href="information.html">相關資訊</a></li>
+        </ul>
+    </nav>
+
+    <!-- Current Weather -->
+    <div id="current" class="wrapper">
+        <nav>
+            <button id="locateBtn" onclick="redirectToAnotherPage()">
+                <i class="fa fa-location-arrow" aria-hidden="true"></i>
+            </button>
+            <button id="unitBtn" data-units="f">f</button>
+        </nav>
+        <h1 class="location">Budai, Chiayi</h1>
+        <h2 id="current_date" class="date">Sunday, January 1, 2017</h2>
+
+        <div id="weekly-weather"></div>
+        
+
+    </div>
+
+    <!-- 漁船景色 -->
+    <div class="animation-wrapper">
+        <div class="water">
+            <ul class="waves">
+                <li class="wave-one" style="background-image: url('https://i.postimg.cc/7LtCC11Y/wave1.png');"></li>
+                <li class="wave-two" style="background-image: url('https://i.postimg.cc/P5hv05rh/wave2.png');"></li>
+                <li class="wave-three" style="background-image: url('https://i.postimg.cc/63Dyc91k/wave3.png');"></li>
+                <li class="wave-four" style="background-image: url('https://i.postimg.cc/1tg8DgM0/wave4.png');"></li>
+            </ul>
+        </div>
+        <div class="boat" style="background-image: url('https://i.postimg.cc/GmQTRnHD/boat2.png');"></div>
+        <!-- <div class="cloud" style="background-image: url('https://i.postimg.cc/VNkrLZCV/cloud-md.png');"></div> -->
+        <div class="cloud2" style="background-image: url('https://i.postimg.cc/VNkrLZCV/cloud-md.png');"></div>
+    </div>
+
+</body>
+
+<script>
+    // 取得當前日期
+const currentDate = new Date();
+
+// 取得星期幾、月份、日期、年份
+const dayOfWeek = getDayOfWeek(currentDate.getDay());
+const month = getMonthName(currentDate.getMonth());
+const day = currentDate.getDate();
+const year = currentDate.getFullYear();
+
+// 更新元素的內容
+const currentDateElement = document.getElementById('current_date');
+currentDateElement.textContent = `${dayOfWeek}, ${month} ${day}, ${year}`;
+
+// 函數：根據星期數字返回星期幾的名稱，首字母大寫，其餘小寫
+function getDayOfWeek(dayIndex) {
+	const daysOfWeek = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+	return capitalizeFirstLetter(daysOfWeek[dayIndex]);
+}
+
+// 函數：根據月份數字返回月份的名稱，首字母大寫，其餘小寫
+function getMonthName(monthIndex) {
+	const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+	return capitalizeFirstLetter(months[monthIndex]);
+}
+
+// 函數：將字符串的首字母轉換為大寫，其餘字母轉換為小寫
+function capitalizeFirstLetter(string) {
+	return string.charAt(0).toUpperCase() + string.slice(1).toLowerCase();
+}
+
+/*左邊按鈕，點選後，跳至布袋天氣網頁(中央氣象署)*/
+function redirectToAnotherPage() {
+	// 在這裡設定你想要跳轉的網址
+	window.location.href = 'https://www.cwa.gov.tw/V8/C/W/Town/Town.html?TID=1001003'; // 替換成你的目標網址
+}
+
+// 溫度轉換
+document.getElementById('unitBtn').addEventListener('click', function () {
+	// 獲取標籤 <p> 內的數字
+	var tempElement = document.querySelector('.temp');
+	var currentTemperature = parseFloat(tempElement.textContent);
+
+	// 判斷按鈕的數據屬性
+	var unitBtn = document.getElementById('unitBtn');
+	if (unitBtn.getAttribute('data-units') === 'f') {
+		// 轉換為華氏溫度 (a x 9/5) + 32
+		var temperatureFahrenheit = (currentTemperature * 9 / 5) + 32;
+		// 根據需求處理小數點後的顯示
+		var formattedTemperature = temperatureFahrenheit.toFixed(2);
+		formattedTemperature = parseFloat(formattedTemperature) === parseInt(temperatureFahrenheit) ? parseInt(temperatureFahrenheit) : formattedTemperature;
+		tempElement.textContent = formattedTemperature;
+		unitBtn.textContent = 'c';
+		unitBtn.setAttribute('data-units', 'c');
+	} else {
+		// 轉換為攝氏溫度 (b - 32) x 5/9
+		var temperatureCelsius = (currentTemperature - 32) * 5 / 9;
+		// 根據需求處理小數點後的顯示
+		var formattedTemperature = temperatureCelsius.toFixed(2);
+		formattedTemperature = parseFloat(formattedTemperature) === parseInt(temperatureCelsius) ? parseInt(temperatureCelsius) : formattedTemperature;
+		tempElement.textContent = formattedTemperature;
+		unitBtn.textContent = 'f';
+		unitBtn.setAttribute('data-units', 'f');
+	}
+});
+
+window.onload = function() {
+    getWeather(currentLocation); // Default to get Chicago weather
+    // Suggest to share location with message and button animation
+    setTimeout(function() {
+        showStatus('', 'Click on the <i class="fa fa-location-arrow" aria-hidden="true"></i> button to share your current location.');
+        $locateBtn.addClass('pulse');
+    }, 5000);
+};
+</script>
+
+</html>

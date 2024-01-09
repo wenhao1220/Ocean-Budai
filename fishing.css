@@ -1,0 +1,9 @@
+@import url("https://fonts.googleapis.com/css?family=Eagle+Lake");
+html, body {
+  margin: 0;
+  overflow: hidden;
+}
+canvas {
+  background: url("https://d2v9y0dukr6mq2.cloudfront.net/video/thumbnail/Pz0oHht/hd-deep-water-underwater-background_eywp8jssl__F0010.png") no-repeat top left;
+  background-size: 100% 100%;
+}
